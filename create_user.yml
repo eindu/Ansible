@@ -1,0 +1,9 @@
+---
+- name: ansible-playbook to create user
+  hosts: all
+  become: true
+  tasks:
+  - name : creating a user john
+    user: 
+      name: john
+

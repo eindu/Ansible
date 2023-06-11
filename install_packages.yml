@@ -1,0 +1,9 @@
+---
+- name: ansible playbook to install git using yum module
+  hosts: all
+  become: true
+  tasks:
+  - name: install packages of git
+    yum:
+      name: ['git', 'make', 'gcc', 'wget', 'telnet']
+      state: installed

@@ -1,0 +1,15 @@
+---
+- name: ansible playbook installs httpd on dest servers
+  hosts: all
+  become: true
+  tasks:
+  - name: stop httpd
+    service:
+         name: httpd
+         state: stopped
+  - name: remove httpd
+    yum:
+      name: httpd
+      state: removed
+
+

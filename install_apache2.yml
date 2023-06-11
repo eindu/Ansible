@@ -1,0 +1,13 @@
+---
+- name: ansible play book to install apache on ubuntu
+  hosts: Dbserver
+  become: true
+  tasks:
+  - name: install apache2
+    apt:
+      name: apache2
+      state: present
+  - name: start service
+    service:
+         name: apache2
+         state: started

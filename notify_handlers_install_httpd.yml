@@ -1,0 +1,16 @@
+---
+- name: ansible playbook installs httpd on dest servers
+  hosts: all
+  become: true
+  tasks:
+  - name: install httpd
+    yum:
+      name: httpd
+      state: installed
+    notify: start httpd
+  handlers:
+  - name: start httpd 
+    service:
+         name: httpd
+         state: started
+

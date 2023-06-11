@@ -1,0 +1,20 @@
+---
+- name: ansible playbook installs httpd on dest servers
+  hosts: all
+  become: true
+  tasks:
+  - name: install httpd 
+    yum:
+      name: httpd
+      state: installed
+    tags: install_httpd
+  - name: start httpd
+    service:
+         name: httpd
+         state: started
+  - name: copy index.html
+    copy:
+      src: /opt/ansible/index.html
+      dest: /var/www/html
+      mode: 0666
+

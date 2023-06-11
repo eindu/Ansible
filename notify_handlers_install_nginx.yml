@@ -1,0 +1,16 @@
+---
+- name: ansible playbook installs nginx on dest servers
+  hosts: all
+  become: true
+  tasks:
+  - name: install nginx
+    yum:
+      name: nginx
+      state: latest
+    notify: start nginx
+  handlers:
+  - name: start nginx
+    service:
+         name: nginx
+         state: started
+
